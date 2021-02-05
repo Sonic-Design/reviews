@@ -40,7 +40,7 @@ Getting all the reviews
 `GET /api/reviews/:id`
 
 Path Parameters:
-  * > id - an id to determine what listing (set of reviews) to grab from
+  * id - an id to determine what listing (set of reviews) to grab from
 
 Return: Array of review objects
 
@@ -58,6 +58,7 @@ Return: Array of review objects
         {
             "_id": Number,
             "profilePicture": String,
+            "user_id": Number,
             "name": String,
             "date": Date,
             "comment": String,
@@ -73,4 +74,22 @@ Return: Array of review objects
 }
 ```
 
+Adding a review
+`POST /api/reviews/:id`
 
+Status Code: `201`
+
+Request body: Expects a JSON object as shown below:
+ ```
+ {
+    "profilePicture": String,
+    "name": String,
+    "user_id": Number,
+    "date": Date,
+    "comment": String,
+    "ownerProfilePicture":  String || null,
+    "ownerName": String || null,
+    "ownerCommentDate": Date || null,
+    "ownerComment": String || null
+}
+ ```
