@@ -12,8 +12,9 @@
 ## Table of Contents
 
 1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
+2. [Requirements](#requirements)
+3. [Development](#development)
+4. [API](#api)
 
 ## Usage
 
@@ -32,3 +33,41 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 ### Installing Dependencies
 
 > npm i to install dependencies
+
+## API
+
+Getting all the reviews
+`GET /api/reviews/:id`
+
+Return: Array of review objects
+
+```
+{
+  "ratings": [
+    ["Cleanliness", Number],
+    ["Accuracy", Number],
+    ["Communication", Number],
+    ["Location", Number],
+    ["Check-in", Number],
+    ["Value", Number]
+  ],
+  "reviews": [
+        {
+            "_id": Number,
+            "profilePicture": String,
+            "name": String,
+            "date": Date,
+            "comment": String,
+            "ownerProfilePicture":  String || null,
+            "ownerName": String || null,
+            "ownerCommentDate": Date || null,
+            "ownerComment": String || null
+        }, ...
+  ],
+  "_id": Number,
+  "averageRating": Number,
+  "reviewCount": Number,
+}
+```
+
+
