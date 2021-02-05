@@ -94,17 +94,31 @@ Request body: Expects a JSON object as shown below:
 }
  ```
 
+ Sample Response(s):
+ ```
+  {
+    "status": 201,
+    "message": "succesfully added review"
+  }
+ ```
+ ```
+  {
+    "status": 400,
+    "message": "failed to add review"
+  }
+ ```
+
  # Editing a review
 
  `PUT /api/reviews/:id/entry/:entryId`
 
  Status Code: `200`
 
- Request Parameters:
+Request Parameters:
   * :id specifies which listing
   * :entryId specifies what review to look into in the array of reviews
 
- Request body: Expects a JSON object as shown below
+Request body: Expects a JSON object as shown below
 
 ```
 {
@@ -116,14 +130,42 @@ Request body: Expects a JSON object as shown below:
     "comment": String,
 }
 ```
+ Sample Response(s):
+ ```
+  {
+    "status": 200,
+    "message": "succesfully edited review"
+  }
+ ```
+ ```
+  {
+    "status": 400,
+    "message": "failed to edit review"
+  }
+ ```
+
 # Deleting a review
 
 `DELETE /api/reviews/:id/entry/:entryId`
 
 Status Code: `200`
 
- Request Parameters:
+Request Parameters:
   * :id specifies which listing
   * :entryId specifies what review to look into in the array of reviews
 
 Request Body: `None`
+
+ Sample Response(s):
+ ```
+  {
+    "status": 200,
+    "message": "succesfully deleted review"
+  }
+ ```
+ ```
+  {
+    "status": 400,
+    "message": "failed to delete review"
+  }
+ ```
