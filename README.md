@@ -39,6 +39,9 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 Getting all the reviews
 `GET /api/reviews/:id`
 
+Path Parameters:
+  Markup : * > id - an id to determine what listing (set of reviews) to grab from
+
 Return: Array of review objects
 
 ```
