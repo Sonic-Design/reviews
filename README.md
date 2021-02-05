@@ -40,7 +40,7 @@ Getting all the reviews
 `GET /api/reviews/:id`
 
 Path Parameters:
-  Markup : * > id - an id to determine what listing (set of reviews) to grab from
+  * > id - an id to determine what listing (set of reviews) to grab from
 
 Return: Array of review objects
 
