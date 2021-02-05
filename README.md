@@ -116,3 +116,14 @@ Request body: Expects a JSON object as shown below:
     "comment": String,
 }
 ```
+# Deleting a review
+
+`DELETE /api/reviews/:id/entry/:entryId`
+
+Status Code: `200`
+
+ Request Parameters:
+  * :id specifies which listing
+  * :entryId specifies what review to look into in the array of reviews
+
+Request Body: `None`
