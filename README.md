@@ -74,7 +74,7 @@ Return: Array of review objects
 }
 ```
 
-Adding a review
+# Adding a review
 `POST /api/reviews/:id`
 
 Status Code: `201`
@@ -93,3 +93,21 @@ Request body: Expects a JSON object as shown below:
     "ownerComment": String || null
 }
  ```
+
+ # Editing a review
+
+ `PUT /api/reviews/:id/entry/:entryId`
+
+ Status Code: `200`
+
+ Request body: Expects a JSON object as shown below
+
+```
+{
+    "profilePicture": String,
+    "name": String,
+    "user_id": Number,
+    "date": Date,
+    "comment": String,
+}
+```
