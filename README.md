@@ -100,10 +100,15 @@ Request body: Expects a JSON object as shown below:
 
  Status Code: `200`
 
+ Request Parameters:
+  * :id specifies which listing
+  * :entryId specifies what review to look into in the array of reviews
+
  Request body: Expects a JSON object as shown below
 
 ```
 {
+    "_id": Number,
     "profilePicture": String,
     "name": String,
     "user_id": Number,
