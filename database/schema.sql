@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS list_of_reviews (
   value INTEGER
   average_rating INTEGER,
   review_count INTEGER,
-  ratings_id INTEGER,
+  ratings_id INTEGER REFERENCES review_ratings (ratings_id),
 );
 
 CREATE TABLE IF NOT EXISTS review_entry (
@@ -36,8 +36,7 @@ CREATE TABLE IF NOT EXISTS user_base (
 );
 
 CREATE TABLE IF NOT EXISTS review_ratings (
-  rating_id SERIAL PRiMARY KEY,
-  review_ratings_id INTEGER REFERENCES list_of_reviews(reviews_id),
+  ratings_id SERIAL PRiMARY KEY,
   cleanliness INTEGER,
   accuracy INTEGER,
   communication INTEGER,
