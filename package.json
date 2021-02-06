@@ -7,7 +7,7 @@
     "build": "webpack",
     "circle": "node server/server.js",
     "docker": "node seeder.js & webpack & node server/server.js",
-    "seed": "node database/usersGenerator.js",
+    "seed": "node database/usersGenerator.js & node database/ratingsGenerator.js",
     "start": "nodemon server/server.js",
     "test": "jest",
     "watch": "webpack --watch"
