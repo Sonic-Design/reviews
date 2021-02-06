@@ -5,16 +5,20 @@ CREATE DATABASE reviews;
 
 CREATE TABLE IF NOT EXISTS list_of_reviews (
   reviews_id SERIAL PRIMARY KEY,
+  average_rating INTEGER,
+  review_count INTEGER,
+  ratings_id INTEGER FOREIGN KEY REFERENCES review_ratings (rating_id),
+);
+
+CREATE TABLE IF NOT EXISTS review_ratings (
+  ratings_id SERIAL PRiMARY KEY,
   cleanliness INTEGER,
   accuracy INTEGER,
   communication INTEGER,
   location INTEGER,
   check_in INTEGER,
   value INTEGER
-  average_rating INTEGER,
-  review_count INTEGER,
-  ratings_id INTEGER REFERENCES review_ratings (ratings_id),
-);
+)
 
 CREATE TABLE IF NOT EXISTS review_entry (
   review_id SERIAL PRIMARY KEY,
@@ -34,13 +38,3 @@ CREATE TABLE IF NOT EXISTS user_base (
   is_owner BOOLEAN,
   user_password VARCHAR(25),
 );
-
-CREATE TABLE IF NOT EXISTS review_ratings (
-  ratings_id SERIAL PRiMARY KEY,
-  cleanliness INTEGER,
-  accuracy INTEGER,
-  communication INTEGER,
-  location INTEGER,
-  check_in INTEGER,
-  value INTEGER
-)
