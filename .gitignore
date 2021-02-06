@@ -24,9 +24,9 @@ lib-cov
 build/
 dist/
 
+database/users.csv
 public/main.js
 .eslintrc.js
 .eslintignore
 coverage/
 public/main.js.LICENSE.txt
-users.csv
