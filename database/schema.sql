@@ -33,8 +33,7 @@ CREATE TABLE IF NOT EXISTS review_entry (
 
 CREATE TABLE IF NOT EXISTS user_base (
   user_id SERIAL PRIMARY KEY,
+  username VARCHAR(16),
   profile_picture VARCHAR(150),
-  user_name VARCHAR(16),
-  is_owner BOOLEAN,
   user_password VARCHAR(25),
 );
