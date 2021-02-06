@@ -12,8 +12,9 @@
 ## Table of Contents
 
 1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
+2. [Requirements](#requirements)
+3. [Development](#development)
+4. [API](#api)
 
 ## Usage
 
@@ -32,3 +33,99 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 ### Installing Dependencies
 
 > npm i to install dependencies
+
+## API
+
+Getting all the reviews
+`GET /api/reviews/:id`
+
+Status Code: `200`
+
+Path Parameters:
+  * id - an id to determine what listing (set of reviews) to grab from
+
+Return: Array of review objects
+(CHANGE TO OBJECT)
+```
+{
+  "ratings": {
+    "Cleanliness": Number,
+    "Accuracy": Number,
+    "Communication": Number,
+    "Location": Number,
+    "Check-in": Number,
+    "Value": Number
+  },
+  "reviews": [
+        {
+            "_id": Number,
+            "profilePicture": String,
+            "user_id": Number,
+            "name": String,
+            "date": Date,
+            "comment": String,
+            "ownerProfilePicture":  String,
+            "ownerName": String,
+            "ownerCommentDate": Date,
+            "ownerComment": String
+        }, ...
+  ],
+  "_id": Number,
+  "averageRating": Number,
+  "reviewCount": Number,
+}
+```
+
+# Adding a review
+`POST /api/reviews/:id`
+
+Status Code: `201`
+
+Request body: Expects a JSON object as shown below:
+ ```
+ {
+    "profilePicture": String,
+    "name": String,
+    "user_id": Number,
+    "date": Date,
+    "comment": String,
+    "ownerProfilePicture":  String,
+    "ownerName": String,
+    "ownerCommentDate": Date,
+    "ownerComment": String
+}
+ ```
+
+ # Editing a review
+
+ `PUT /api/reviews/:id/entry/:entryId`
+
+ Status Code: `200`
+
+Request Parameters:
+  * :id specifies which listing
+  * :entryId specifies what review to look into in the array of reviews
+
+Request body: Expects a JSON object as shown below
+
+```
+{
+    "_id": Number,
+    "user_id": Number,
+    "comment": String,
+    "owner_comment": String,
+    "owner_id": Number
+}
+```
+
+# Deleting a review
+
+`DELETE /api/reviews/:id/entry/:entryId`
+
+Status Code: `200`
+
+Request Parameters:
+  * :id specifies which listing
+  * :entryId specifies what review to look into in the array of reviews
+
+Request Body: `None`

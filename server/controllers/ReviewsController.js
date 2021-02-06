@@ -1,5 +1,4 @@
 const get = require('../models/ReviewsModel.js');
-const test = 'a test variable';
 
 const getReviews = (req, res) => (
   get(req.params.id, (err, reviews) => {
