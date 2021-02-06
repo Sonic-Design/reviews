@@ -29,3 +29,4 @@ public/main.js
 .eslintignore
 coverage/
 public/main.js.LICENSE.txt
+users.csv
