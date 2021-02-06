@@ -5,14 +5,14 @@ CREATE DATABASE reviews;
 
 CREATE TABLE IF NOT EXISTS property_listings (
   property_id SERIAL PRIMARY KEY,
-  average_rating SMALLINT,
-  review_count SMALLINT,
-  avg_cleanliness SMALLINT,
-  avg_accuracy SMALLINT,
-  avg_communication SMALLINT,
-  avg_location SMALLINT,
-  avg_check_in SMALLINT,
-  avg_value SMALLINT
+  average_rating    DECIMAL,
+  review_count      DECIMAL,
+  avg_cleanliness   DECIMAL,
+  avg_accuracy      DECIMAL,
+  avg_communication DECIMAL,
+  avg_location      DECIMAL,
+  avg_check_in      DECIMAL,
+  avg_value         DECIMAL
 );
 
 CREATE TABLE IF NOT EXISTS user_base (
@@ -30,12 +30,12 @@ CREATE TABLE IF NOT EXISTS review_entry (
   listing_id INTEGER REFERENCES property_listings (property_id),
   user_id INTEGER REFERENCES user_base(user_id),
   comment VARCHAR(180),
-  comment_timestamp VARCHAR(15),
-  cleanliness SMALLINT,
-  accuracy SMALLINT,
-  communication SMALLINT,
-  location_value SMALLINT,
-  check_in SMALLINT,
-  stay_value SMALLINT
+  comment_timestamp VARCHAR(50),
+  cleanliness DECIMAL,
+  accuracy DECIMAL,
+  communication DECIMAL,
+  location_value DECIMAL,
+  check_in DECIMAL,
+  stay_value DECIMAL
 );
 

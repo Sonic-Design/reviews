@@ -24,6 +24,8 @@ lib-cov
 build/
 dist/
 
+
+database/properties.csv
 database/ratings.csv
 database/users.csv
 public/main.js

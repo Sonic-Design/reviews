@@ -39,5 +39,5 @@ const csvWriter = createCsvWriter({
 
 csvWriter.writeRecords(writePropertyListings(NumOfRecords))       // returns a promise
     .then(() => {
-        console.log('...Done');
+        console.log('...property listings generated');
     });

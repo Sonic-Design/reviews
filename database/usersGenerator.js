@@ -1,6 +1,7 @@
 const path = require('path');
 const faker = require('faker');
-const NumberOfRecords = 1000000;
+const NumberOfUsers = 200000;
+
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 const csvWriter = createCsvWriter({
     path: path.join('/Users/brandonnguyen/Documents/HackReactorStuff/SDC/reviews/database/users.csv'),
@@ -15,10 +16,10 @@ const csvWriter = createCsvWriter({
     ]
 });
 
-const records = [];
+const userBase = [];
 
-for (let i = 0; i < NumberOfRecords; i++) {
-  records.push({
+for (let i = 0; i < NumberOfUsers; i++) {
+  userBase.push({
     user_id: i,
     first_name: faker.name.findName(),
     last_name: faker.name.findName(),
@@ -29,7 +30,7 @@ for (let i = 0; i < NumberOfRecords; i++) {
   })
 }
 
-csvWriter.writeRecords(records)       // returns a promise
+csvWriter.writeRecords(userBase)       // returns a promise
     .then(() => {
-        console.log('...Done');
+        console.log('...users generated');
     });
