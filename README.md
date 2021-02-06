@@ -39,21 +39,23 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 Getting all the reviews
 `GET /api/reviews/:id`
 
+Status Code: `200`
+
 Path Parameters:
   * id - an id to determine what listing (set of reviews) to grab from
 
 Return: Array of review objects
-
+(CHANGE TO OBJECT)
 ```
 {
-  "ratings": [
-    ["Cleanliness", Number],
-    ["Accuracy", Number],
-    ["Communication", Number],
-    ["Location", Number],
-    ["Check-in", Number],
-    ["Value", Number]
-  ],
+  "ratings": {
+    "Cleanliness": Number,
+    "Accuracy": Number,
+    "Communication": Number,
+    "Location": Number,
+    "Check-in": Number,
+    "Value": Number
+  },
   "reviews": [
         {
             "_id": Number,
@@ -62,10 +64,10 @@ Return: Array of review objects
             "name": String,
             "date": Date,
             "comment": String,
-            "ownerProfilePicture":  String || null,
-            "ownerName": String || null,
-            "ownerCommentDate": Date || null,
-            "ownerComment": String || null
+            "ownerProfilePicture":  String,
+            "ownerName": String,
+            "ownerCommentDate": Date,
+            "ownerComment": String
         }, ...
   ],
   "_id": Number,
@@ -87,25 +89,11 @@ Request body: Expects a JSON object as shown below:
     "user_id": Number,
     "date": Date,
     "comment": String,
-    "ownerProfilePicture":  String || null,
-    "ownerName": String || null,
-    "ownerCommentDate": Date || null,
-    "ownerComment": String || null
+    "ownerProfilePicture":  String,
+    "ownerName": String,
+    "ownerCommentDate": Date,
+    "ownerComment": String
 }
- ```
-
- Sample Response(s):
- ```
-  {
-    "status": 201,
-    "message": "succesfully added review"
-  }
- ```
- ```
-  {
-    "status": 400,
-    "message": "failed to add review"
-  }
  ```
 
  # Editing a review
@@ -123,26 +111,12 @@ Request body: Expects a JSON object as shown below
 ```
 {
     "_id": Number,
-    "profilePicture": String,
-    "name": String,
     "user_id": Number,
-    "date": Date,
     "comment": String,
+    "owner_comment": String,
+    "owner_id": Number
 }
 ```
- Sample Response(s):
- ```
-  {
-    "status": 200,
-    "message": "succesfully edited review"
-  }
- ```
- ```
-  {
-    "status": 400,
-    "message": "failed to edit review"
-  }
- ```
 
 # Deleting a review
 
@@ -155,17 +129,3 @@ Request Parameters:
   * :entryId specifies what review to look into in the array of reviews
 
 Request Body: `None`
-
- Sample Response(s):
- ```
-  {
-    "status": 200,
-    "message": "succesfully deleted review"
-  }
- ```
- ```
-  {
-    "status": 400,
-    "message": "failed to delete review"
-  }
- ```
