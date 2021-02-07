@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS user_base (
   profile_picture VARCHAR(150),
   username VARCHAR(16),
   user_password VARCHAR(25),
-  user_email VARCHAR(25),
+  user_email VARCHAR(50)
 );
 
 CREATE TABLE IF NOT EXISTS review_entry (
@@ -38,4 +38,9 @@ CREATE TABLE IF NOT EXISTS review_entry (
   check_in DECIMAL,
   stay_value DECIMAL
 );
+
+\COPY property_listings FROM '/Users/brandonnguyen/Documents/HackReactorStuff/SDC/reviews/database/properties.csv' WITH CSV HEADER DELIMITER ',';
+\COPY user_base FROM '/Users/brandonnguyen/Documents/HackReactorStuff/SDC/reviews/database/users.csv' WITH CSV HEADER DELIMITER ',';
+\COPY review_entry FROM '/Users/brandonnguyen/Documents/HackReactorStuff/SDC/reviews/database/reviews.csv' WITH CSV HEADER DELIMITER ',';
+
 

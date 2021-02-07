@@ -26,7 +26,7 @@ dist/
 
 
 database/properties.csv
-database/ratings.csv
+database/reviews.csv
 database/users.csv
 public/main.js
 .eslintrc.js

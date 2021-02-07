@@ -16,21 +16,32 @@ const csvWriter = createCsvWriter({
     ]
 });
 
-const userBase = [];
-
-for (let i = 0; i < NumberOfUsers; i++) {
-  userBase.push({
-    user_id: i,
-    first_name: faker.name.findName(),
-    last_name: faker.name.findName(),
-    profile_picture: faker.image.people(),
-    username: faker.name.findName(),
-    user_password: faker.internet.password(),
-    user_email: faker.internet.email(),
-  })
+const generateUsers = (startIndex, endIndex) => {
+  let userBase = [];
+  for (let i = startIndex; i <= endIndex; i++) {
+    userBase.push({
+      user_id: i,
+      first_name: faker.name.firstName(),
+      last_name: faker.name.lastName(),
+      profile_picture: faker.image.people(),
+      username: faker.internet.userName(),
+      user_password: faker.internet.password(),
+      user_email: faker.internet.email(),
+    })
+  }
+  return userBase;
 }
 
-csvWriter.writeRecords(userBase)       // returns a promise
-    .then(() => {
-        console.log('...users generated');
-    });
+async function writeListings(n) {
+  const currentChunk = Math.floor(n / 100);
+  console.log('Chunk count: ', currentChunk);
+  // eslint-disable-next-line no-plusplus
+  for (let i = 0; i < 100; ++i) {
+    console.log(`Processing users chunk: ${i + 1}`);
+    const listingDump = generateUsers(currentChunk * i, currentChunk * (i + 1) - 1);
+    // eslint-disable-next-line no-await-in-loop
+    await csvWriter.writeRecords(listingDump);
+  }
+}
+
+writeListings(NumberOfUsers);
