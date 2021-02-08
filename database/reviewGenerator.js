@@ -2,26 +2,28 @@ const path = require('path');
 const faker = require('faker');
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 
-const numberOfProperties = 10_000;
+const numberOfProperties = 10_000_000;
 
+let uniqueIndex = 0;
 const writeReviews = (startIndex, endIndex) => {
   let records = [];
   for (let i = startIndex; i <= endIndex; i++) {
-    const amountOfReviews = Math.random() * (18 - 15) + 15;
+    const amountOfReviews = Math.random() * (5 - 3) + 3;
     for (let j = 0; j < amountOfReviews; j++) {
       records.push({
+        // review_id: uniqueIndex,
         property_id: i,
-        review_id: j,
         user_id: Math.floor(Math.random() * (200000 - 1) + 1),
-        comment: faker.lorem.sentences(),
-        comment_timestamp: faker.time.recent(),
         cleanliness: (Math.random() * (5.01 - 1) + 1).toFixed(1),
         accuracy: (Math.random() * (5.01 - 1) + 1).toFixed(1),
         communication: (Math.random() * (5.01 - 1) + 1).toFixed(1),
         location: (Math.random() * (5.01 - 1) + 1).toFixed(1),
         check_in: (Math.random() * (5.01 - 1) + 1).toFixed(1),
         value: (Math.random() * (5.01 - 1) + 1).toFixed(1),
+        comment: faker.lorem.sentences(),
+        comment_timestamp: faker.date.recent(),
       })
+      uniqueIndex++;
     }
   }
   return records
@@ -30,17 +32,17 @@ const writeReviews = (startIndex, endIndex) => {
 const csvWriter = createCsvWriter({
     path: path.join('/Users/brandonnguyen/Documents/HackReactorStuff/SDC/reviews/database/reviews.csv'),
     header: [
+      // {id: 'review_id', title: 'REVIEW ID'},
       {id: 'property_id', title: 'PROPERTY ID'},
-      {id: 'review_id', title: 'REVIEW ID'},
       {id: 'user_id', title: 'USER ID'},
-      {id: 'comment', title: 'COMMENT'},
-      {id: 'comment_timestamp', title: 'COMMENT TIMESTAMP'},
       {id: 'cleanliness', title: 'CLEANLINESS'},
       {id: 'accuracy', title: 'ACCURACY'},
       {id: 'communication', title: 'COMMUNICATION'},
       {id: 'location', title: 'LOCATION'},
       {id: 'check_in', title: 'CHECK IN'},
       {id: 'value', title: 'VALUE'},
+      {id: 'comment', title: 'COMMENT'},
+      {id: 'comment_timestamp', title: 'COMMENT TIMESTAMP'},
     ]
 });
 

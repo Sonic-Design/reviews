@@ -2,7 +2,7 @@ const path = require('path');
 const faker = require('faker');
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 
-const NumOfRecords = 10_000;
+const NumOfRecords = 10_000_000;
 
 const writePropertyListings = (startIndex, endIndex) => {
   let records = [];
