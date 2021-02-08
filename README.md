@@ -64,10 +64,12 @@ Return: Array of review objects
             "name": String,
             "date": Date,
             "comment": String,
-            "ownerProfilePicture":  String,
-            "ownerName": String,
-            "ownerCommentDate": Date,
-            "ownerComment": String
+            "Cleanliness": Number,
+            "Accuracy": Number,
+            "Communication": Number,
+            "Location": Number,
+            "Check-in": Number,
+            "Value": Number
         }, ...
   ],
   "_id": Number,
@@ -84,15 +86,18 @@ Status Code: `201`
 Request body: Expects a JSON object as shown below:
  ```
  {
-    "profilePicture": String,
-    "name": String,
-    "user_id": Number,
-    "date": Date,
-    "comment": String,
-    "ownerProfilePicture":  String,
-    "ownerName": String,
-    "ownerCommentDate": Date,
-    "ownerComment": String
+           "_id": Number,
+            "profilePicture": String,
+            "user_id": Number,
+            "name": String,
+            "date": Date,
+            "comment": String,
+            "Cleanliness": Number,
+            "Accuracy": Number,
+            "Communication": Number,
+            "Location": Number,
+            "Check-in": Number,
+            "Value": Number
 }
  ```
 

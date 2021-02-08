@@ -24,6 +24,9 @@ lib-cov
 build/
 dist/
 
+
+database/properties.csv
+database/reviews.csv
 database/users.csv
 public/main.js
 .eslintrc.js
