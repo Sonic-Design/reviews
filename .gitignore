@@ -25,7 +25,6 @@ build/
 dist/
 
 
-newrelic.js
 __tests__/server.test.node.js
 database/properties.csv
 database/reviews.csv
@@ -35,3 +34,4 @@ public/main.js
 .eslintignore
 coverage/
 public/main.js.LICENSE.txt
+newrelic.js
