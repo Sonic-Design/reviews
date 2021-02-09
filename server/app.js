@@ -3,6 +3,7 @@ const compression = require('compression');
 const express = require('express');
 const path = require('path');
 const controller = require('./controllers/ReviewsController.js');
+const newrelic = require('newrelic');
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }))
