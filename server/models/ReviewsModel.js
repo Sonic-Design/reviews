@@ -50,7 +50,7 @@ const editReview = (req, cb) => {
   ];
   const query = 'UPDATE review_entry SET cleanliness=$1, accuracy=$2, communication=$3, location_value=$4, check_in=$5, stay_value=$6, comment=$7, comment_timestamp=$8 WHERE review_id=$9';
   db.query(query, values)
-    .then(({ rows }) => cb(null, rows))
+    .then((data) => cb(null, data))
     .catch(cb);
 }
 
@@ -58,7 +58,7 @@ const deleteReview = (id, cb) => {
   const values = [id]
   const query = 'DELETE FROM review_entry WHERE review_id=$1';
   db.query(query, values)
-    .then(({ rows }) => cb(null, rows))
+    .then((data) => cb(null, data))
     .catch(cb);
 };
 

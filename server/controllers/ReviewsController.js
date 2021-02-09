@@ -31,7 +31,7 @@ const addReview = (req, res) => {
 };
 
 const editReview = (req, res) => {
-  models.editReview(req.params, (err, data) => {
+  models.editReview(req, (err, data) => {
     if (err) {
       res.status(400).send(err);
     } else {
