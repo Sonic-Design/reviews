@@ -24,6 +24,8 @@ lib-cov
 build/
 dist/
 
+
+newrelic.js
 __tests__/server.test.node.js
 database/properties.csv
 database/reviews.csv
