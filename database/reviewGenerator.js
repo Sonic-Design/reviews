@@ -2,6 +2,7 @@ const path = require('path');
 const faker = require('faker');
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 
+
 const numberOfProperties = 10_000_000;
 
 let uniqueIndex = 0;
@@ -14,12 +15,12 @@ const writeReviews = (startIndex, endIndex) => {
         // review_id: uniqueIndex,
         property_id: i,
         user_id: Math.floor(Math.random() * (200000 - 1) + 1),
-        cleanliness: (Math.random() * (5.01 - 1) + 1).toFixed(1),
-        accuracy: (Math.random() * (5.01 - 1) + 1).toFixed(1),
-        communication: (Math.random() * (5.01 - 1) + 1).toFixed(1),
-        location: (Math.random() * (5.01 - 1) + 1).toFixed(1),
-        check_in: (Math.random() * (5.01 - 1) + 1).toFixed(1),
-        value: (Math.random() * (5.01 - 1) + 1).toFixed(1),
+        cleanliness: Math.round(Math.random() * (5 - 1) + 1),
+        accuracy: Math.round(Math.random() * (5 - 1) + 1),
+        communication: Math.round(Math.random() * (5 - 1) + 1),
+        location: Math.round(Math.random() * (5 - 1) + 1),
+        check_in: Math.round(Math.random() * (5 - 1) + 1),
+        value: Math.round(Math.random() * (5 - 1) + 1),
         comment: faker.lorem.sentences(),
         comment_timestamp: faker.date.recent(),
       })

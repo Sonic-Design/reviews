@@ -1,8 +1,9 @@
 const path = require('path');
 const faker = require('faker');
+const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 const NumberOfUsers = 200000;
 
-const createCsvWriter = require('csv-writer').createObjectCsvWriter;
+
 const csvWriter = createCsvWriter({
     path: path.join('/Users/brandonnguyen/Documents/HackReactorStuff/SDC/reviews/database/users.csv'),
     header: [

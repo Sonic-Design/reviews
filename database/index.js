@@ -1,23 +1,37 @@
-const mongoose = require('mongoose');
+const { Pool } = require('pg');
 
-const url = process.env.CONNECTIONSTRING || 'mongodb://localhost/fec';
-
-mongoose.connect(url, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+const pool = new Pool({
+  user: 'brandonnguyen',
+  database: 'reviews',
+  port: 5432,
 });
 
-const reviewsSchema = new mongoose.Schema({
-  _id: Number,
-  averageRating: Number,
-  reviewCount: Number,
-  ratings: Array,
-  reviews: Array,
-});
+pool.connect()
+  .then(() => console.log('connected to postgreSQL successfully!'));
 
-const Review = mongoose.model('Review', reviewsSchema);
+  module.exports = pool;
 
-module.exports = {
-  connection: mongoose.connection,
-  Review,
-};
+
+// const mongoose = require('mongoose');
+
+// const url = process.env.CONNECTIONSTRING || 'mongodb://localhost/fec';
+
+// mongoose.connect(url, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// });
+
+// const reviewsSchema = new mongoose.Schema({
+//   _id: Number,
+//   averageRating: Number,
+//   reviewCount: Number,
+//   ratings: Array,
+//   reviews: Array,
+// });
+
+// const Review = mongoose.model('Review', reviewsSchema);
+
+// module.exports = {
+//   connection: mongoose.connection,
+//   Review,
+// };
