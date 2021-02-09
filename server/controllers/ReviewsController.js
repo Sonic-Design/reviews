@@ -41,7 +41,7 @@ const editReview = (req, res) => {
 };
 
 const deleteReview = (req, res) => {
-  models.deleteReview(req.params, (err, data) =>{
+  models.deleteReview(req.params.entryId, (err, data) =>{
     if (err) {
       res.status(400).send(err);
     } else {
