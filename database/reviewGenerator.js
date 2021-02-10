@@ -3,7 +3,7 @@ const faker = require('faker');
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 
 
-const numberOfProperties = 10_000_000;
+const numberOfProperties = 10000000;
 
 let uniqueIndex = 0;
 const writeReviews = (startIndex, endIndex) => {
