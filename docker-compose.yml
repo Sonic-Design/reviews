@@ -1,23 +1,7 @@
-version: '3.8'
+version: '13'
 
-services:
- reviews:
-  build:
-   context: .
-  ports:
-   - 8080:3000
-  environment:
-   - CONNECTIONSTRING=mongodb://mongo:27017/fec
-  volumes:
-   - ./:/code
-
- mongo:
-  image: mongo:4.4.3
-  ports:
-   - 27017:27017
-  volumes:
-   - mongodb:/data/db
-   - mongodb_config:/data/configdb
-volumes:
- mongodb:
- mongodb_config:
+service:
+ postgres:
+ image: 'postgres: latest'
+ ports:
+  - '5432:5432'
