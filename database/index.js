@@ -1,10 +1,11 @@
+const { user, host, database, password } = require('./sensitiveInfo.js');
 const { Pool } = require('pg');
 
 const pool = new Pool({
-  user: 'postgres',
-  host: '54.183.210.175',
-  database: 'reviews',
-  password: '9639',
+  user: user,
+  host: host,
+  database: database,
+  password: password,
   port: 5432,
 });
 

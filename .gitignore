@@ -29,6 +29,7 @@ __tests__/server.test.node.js
 database/properties.csv
 database/reviews.csv
 database/users.csv
+database/sensitiveInfo.js
 public/main.js
 .eslintrc.js
 .eslintignore
