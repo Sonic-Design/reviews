@@ -11,7 +11,7 @@
     "start": "nodemon server/server.js",
     "test": "jest",
     "watch": "webpack --watch",
-    "load": "k6 run loadtester.js"
+    "stress-test": "k6 run loadtester.js"
   },
   "dependencies": {
     "@babel/core": "^7.12.10",
